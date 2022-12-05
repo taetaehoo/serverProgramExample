@@ -4,23 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba100c1a-057f-4af1-89ed-8822e41b6059" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/JPASupport-project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/.gradle/checksums/md5-checksums.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmp/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/tmp/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+    <list default="true" id="d4e10dca-d6e4-4b0c-9d45-5d7e9b338719" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DAO/MenuDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DAO/MenuOptionDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DAO/MenuOrderedDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DAO/OrdertableDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DAO/ReviewDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DAO/StoreDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DAO/UserDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DTO/MenuDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DTO/MenuOptionDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DTO/MenuOrderedDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DTO/OrdertableDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DTO/ReviewDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DTO/Status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DTO/StoreDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/persistence/DTO/UserDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/LoginService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/ManagerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/OwnerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/ReviewService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqlmapper/menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqlmapper/menuOption.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqlmapper/menuOrdered.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqlmapper/ordertable.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqlmapper/review.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqlmapper/store.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sqlmapper/user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/JPASupport-project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/network/Protocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/network/Protocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/network/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/network/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/network/ServerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/network/ServerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/persistence/MyBatisConnectionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/persistence/MyBatisConnectionFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config/config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config/config.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,30 +54,23 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2IDlZMR5VRtdhsfnRuq0ZhZnkRF" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="2IUcIiGFoYuWVm66zFNtP2kTJLi" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/JavaPractice/QrReading",
+    "last_opened_file_path": "D:/JavaPractice/융합 프로젝트/client",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
   }
 }]]></component>
@@ -85,14 +100,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ba100c1a-057f-4af1-89ed-8822e41b6059" name="Changes" comment="" />
-      <created>1669724092323</created>
+      <changelist id="d4e10dca-d6e4-4b0c-9d45-5d7e9b338719" name="Changes" comment="" />
+      <created>1670239525892</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1669724092323</updated>
-      <workItem from="1669724095042" duration="2779000" />
-      <workItem from="1669727131866" duration="113000" />
-      <workItem from="1669809020841" duration="137000" />
+      <updated>1670239525892</updated>
+      <workItem from="1670239527393" duration="6805000" />
     </task>
     <servers />
   </component>

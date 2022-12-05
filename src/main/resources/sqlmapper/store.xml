@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.StoreMapper">
+    <resultMap id="storeResult" type="StoreDTO">
+        <result property="pk" column="pk"/>
+        <result property="storeName" column="storeName"/>
+        <result property="user_pk" column="user_pk"/>
+        <result property="orderCnt" column="orderCnt"/>
+        <result property="introduction" column="introduction"/>
+        <result property="address" column="address"/>
+        <result property="pNumber" column="pNumber"/>
+        <result property="openTime" column="openTime"/>
+        <result property="closeTime" column="closeTime"/>
+
+    </resultMap>
+
+    <select id="selectStoreKeyByStoreName" parameterType="String" resultType="int">
+        select pk FROM store where storeName = #{storeName}
+    </select>
+
+    <insert id="insertStore" parameterType="StoreDTO">
+        INSERT INTO store(storeName, user_pk, introduction, address, pNumber, openTime, closeTime)
+        VALUES (#{storeName}, #{user_pk}, #{introduction}, #{address}, #{pNumber}, #{openTime}, #{closeTime})
+    </insert>
+
+    <select id="inquiryStore" resultMap="storeResult">
+        SELECT user_pk, storeName, orderCnt, introduction, s.address, s.pNumber, u.name
+        FROM store s JOIN user u ON s.user_pk = u.pk
+    </select>
+
+
+</mapper>

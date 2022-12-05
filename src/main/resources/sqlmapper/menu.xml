@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.MenuMapper">
+    <resultMap id="menuResult" type="MenuDTO">
+        <result property="pk" column="pk"/>
+        <result property="store_pk" column="store_pk"/>
+        <result property="menuName" column="menuName"/>
+        <result property="price" column="price"/>
+        <result property="limitedQuantity" column="limitedQuantity"/>
+        <result property="series" column="series"/>
+    </resultMap>
+
+    <insert id="insertMenu" parameterType="MenuDTO">
+        INSERT INTO menu(store_pk, menuName, price, limitedQuantity, series)
+        VALUES (#{store_pk}, #{menuName}, #{price}, #{limitedQuantity}, #{series})
+    </insert>
+
+    <select id="selectAll" resultMap="menuResult">
+        SELECT * FROM menu
+    </select>
+
+    <select id="selectMenu" resultMap="menuResult">
+        SELECT * FROM menu where menuName = #{menuName}
+    </select>
+
+    <update id="changeMenu" parameterType="MenuDTO" >
+        update menu set
+                        menuName = case when #{menuName} != menuName and #{menuName} is not null then #{menuName} else menuName end,
+            price = case when #{price} != price and #{price} is not null then #{price} else price end
+            where pk = #{pk}
+    </update>
+
+    <select id="inquiryLimitedQuantity" resultMap="menuResult" parameterType="MenuDTO">
+        SELECT limitedQuantity FROM menu WHERE pk = #{pk}
+    </select>
+
+    <update id="materialExhaustion" parameterType="MenuDTO">
+        update menu set limitedQuantity = limitedQuantity-1 WHERE pk = #{pk}
+    </update>
+
+</mapper>

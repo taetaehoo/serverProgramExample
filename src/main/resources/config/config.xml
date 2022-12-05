@@ -5,7 +5,13 @@
 
 <configuration>
     <typeAliases>
-
+        <typeAlias alias="MenuOptionDTO" type="persistence.DTO.MenuOptionDTO"/>
+        <typeAlias alias="MenuDTO" type="persistence.DTO.MenuDTO"/>
+        <typeAlias alias="OrdertableDTO" type="persistence.DTO.OrdertableDTO"/>
+        <typeAlias alias="ReviewDTO" type="persistence.DTO.ReviewDTO"/>
+        <typeAlias alias="StoreDTO" type="persistence.DTO.StoreDTO"/>
+        <typeAlias alias="UserDTO" type="persistence.DTO.UserDTO"/>
+        <typeAlias alias="MenuOrderedDTO" type="persistence.DTO.MenuOrderedDTO"/>
     </typeAliases>
 
     <environments default="development">
@@ -14,7 +20,7 @@
             <!--  connecting to Local MySql -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost/convergence_project?characterEncoding=utf8&amp;serverTimezone=UTC&amp;useSSL=false"/>
+                <property name="url" value="jdbc:mysql://localhost/convergence_project?characterEncoding=utf8&amp;serverTimezone=UTC&amp;"/>
                 <property name="username" value="root"/>
                 <property name="password" value="rkdxogur123!"/>
             </dataSource>
@@ -22,6 +28,13 @@
         </environment>
     </environments>
     <mappers>
+        <mapper resource="sqlmapper/menu.xml"/>
+        <mapper resource="sqlmapper/menuOption.xml"/>
+        <mapper resource="sqlmapper/menuOrdered.xml" />
+        <mapper resource="sqlmapper/ordertable.xml"/>
+        <mapper resource="sqlmapper/review.xml" />
+        <mapper resource="sqlmapper/store.xml"/>
+        <mapper resource="sqlmapper/user.xml" />
 
     </mappers>
 </configuration>

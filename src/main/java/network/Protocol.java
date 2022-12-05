@@ -1,16 +1,63 @@
 package network;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.nio.ByteBuffer;
 
-public class Protocol {
+public class Protocol implements Serializable {
     final static public int UNDEFINED = 0;
     final static public int NOTHING = 0;
 
     public static final int EXIT = -1;
+
+    public static final int RES = 1;
+    public static final int SUCCESS = 1;
+    public static final int FAIL = 2;
+
+    public static final int LOGIN_REQ = 1;
+    public static final int LOGIN_RES = 2;
+
+    public static final int REGISTER_REQ = 3;
+
+    public static final int SIGN_UP = 10;
+
+    public static final int STORE = 20;
+    public static final int APPROVE_STORE = 21;
+    public static final int REFUSE_STORE = 22;
+    public static final int ORDERCNT_PER_STORE = 23;
+    public static final int SALES_PER_STORE = 24;
+
+    public static final int OWNER = 30;
+    public static final int APPROVE_OWNER = 31;
+    public static final int REFUSE_OWNER = 32;
+
+    public static final int MENU = 40;
+    public static final int APPROVE_MENU = 41;
+    public static final int REFUSE_MENU = 42;
+    public static final int MENU_OPTION = 43;
+    public static final int ORDERCNT_PER_MENU = 44;
+    public static final int SALES_PER_MENU = 45;
+
+    public static final int ORDER = 50;
+    public static final int APPROVE_ORDER = 51;
+    public static final int REFUSE_ORDER = 52;
+    public static final int ORDER_INFO = 53;
+
+    public static final int REVIEW_AND_RATING = 60;
+    public static final int REVIEW_REPLY = 61;
+
+    public static final int INQUIRY_REQ = 4;
+
+    public static final int INQUIRY_RES = 5;
+
+    public static final int SETTING_REQ = 6;
+    public static final int BUSINESS_HOURS = 25;
+
+    public static final int UPDATE_REQ = 7;
+    public static final int PRIVACY = 11;
+    public static final int PASSWORD = 12;
+
+    public static final int CANCEL_REQ = 8;
+
     public static final int LEN_TYPE = 1;
     public static final int LEN_CODE = 1;
     public static final int LEN_BODY_LENGTH = 4;
@@ -22,6 +69,7 @@ public class Protocol {
     public Protocol() {
         this(UNDEFINED, NOTHING);
     }
+
     public Protocol(int type) {
         this(type, NOTHING);
     }
@@ -129,4 +177,6 @@ public class Protocol {
     private int byteToInt(byte[] b) {
         return ByteBuffer.wrap(b).getInt();
     }
+
+
 }

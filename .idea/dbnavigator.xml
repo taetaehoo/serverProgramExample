@@ -397,7 +397,7 @@
       <regional-settings>
         <date-format value="MEDIUM" />
         <number-format value="UNGROUPED" />
-        <locale value="ko_KR" />
+        <locale value="SYSTEM_DEFAULT" />
         <use-custom-formats value="false" />
       </regional-settings>
       <environment>

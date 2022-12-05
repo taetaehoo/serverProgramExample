@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.MenuOrderedMapper">
+    <resultMap id="menuOrderedResult" type="MenuOrderedDTO">
+        <result property="pk" column="pk"/>
+        <result property="ordertable_pk" column="ordertable_pk"/>
+        <result property="menu_pk" column="menu_pk"/>
+        <result property="menu_option_pk" column="menu_option_pk" />
+    </resultMap>
+
+    <select id="selectAll" resultType="MenuOrderedDTO">
+        SELECT * FROM menu_ordered
+    </select>
+
+</mapper>

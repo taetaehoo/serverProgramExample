@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.OrdertableMapper">
+    <resultMap id="ordertableResult" type="OrdertableDTO">
+        <result property="pk" column="pk"/>
+        <result property="user_pk" column="user_pk"/>
+        <result property="store_pk" column="store_pk"/>
+        <result property="request" column="request"/>
+        <result property="created_date" column="created_date"/>
+        <result property="status" column="status"/>
+        <result property="total" column="total" />
+    </resultMap>
+
+
+    <insert id="insertOrder" parameterType="OrdertableDTO">
+        INSERT INTO ordertable(store_pk, user_pk, request, total, status)
+        VALUES (#{store_pk}, #{user_pk}, #{request}, #{total}, #{status})
+    </insert>
+
+    <select id="selectAll" resultMap="ordertableResult">
+        SELECT * FROM ordertable
+    </select>
+
+    <update id="acceptOrder" parameterType="OrdertableDTO">
+        update ordertable set
+            status = case when #{status} = '접수대기' then '배달중'
+                          when #{status} = '배달중' then '배달완료'
+                          else status end
+        where pk = #{pk}
+    </update>
+
+    <select id="menuOrderJoin" resultMap="ordertableResult">
+        SELECT menu.menuName, ordertable.*, u.nickname
+        FROM menu JOIN ordertable ON menu.pk = ordertable.menu_pk JOIN user u ON ordertable.user_pk = u.pk
+        where ordertable.pk = #{pk}
+    </select>
+
+    <select id="inquiryOrders" resultMap="ordertableResult">
+        SELECT u.nickname, m.menuName, o.op1, o.op2, o.op3, o.op4, total, o.status
+        FROM ordertable o JOIN user u ON o.user_pk = u.pk JOIN menu m ON o.menu_pk = m.pk
+        WHERE o.store_pk = #{ordertable_store_pk};
+    </select>
+
+    <select id="inquiryOrderByPk" resultMap="ordertableResult" parameterType="int">
+        SELECT * FROM ordertable WHERE pk = #{pk}
+    </select>
+
+    <select id="inquiryDeliveryFinish" resultMap="ordertableResult">
+        SELECT m.menuName, o.*, u.nickname
+        FROM menu m
+                 JOIN ordertable o
+                      ON m.pk = o.menu_pk
+                 JOIN user u ON o.user_pk = u.pk
+        where o.user_pk = #{ordertable_user_pk} and (o.status = '취소' or o.status = '배달완료')
+    </select>
+
+    <update id="cancelOrder" parameterType="OrdertableDTO">
+        update ordertable set
+            status = case when #{status} = '접수대기' then '취소'
+                          else status end
+        where pk = #{pk}
+    </update>
+
+    <select id="inquirySalesPerStore" resultType="int" parameterType="int">
+        SELECT SUM(total) FROM ordertable WHERE store_pk = #{ordertable_store_pk}
+    </select>
+
+    <select id="inquirySalesPerMenu" resultType="int" parameterType="int">
+        SELECT SUM(total) FROM ordertable WHERE menu_pk = #{ordertable_menu_pk}
+    </select>
+
+    <select id="inquiryOrderCntPerStore" resultType="int" parameterType="int">
+        SELECT COUNT(*) FROM ordertable WHERE store_pk = #{ordertable_store_pk}
+    </select>
+
+    <select id="inquiryOrderCntPerMenu" resultType="int" parameterType="int">
+        SELECT COUNT(*) FROM ordertable WHERE menu_pk = #{ordertable_menu_pk}
+    </select>
+
+
+
+</mapper>

@@ -25,6 +25,7 @@ public class MyBatisConnectionFactory {
             iOException.printStackTrace();
         }
     }
+
     public static SqlSessionFactory getSqlSessionFactory() {
         return sqlSessionFactory;
     }

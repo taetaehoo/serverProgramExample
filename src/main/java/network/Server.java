@@ -1,8 +1,13 @@
 package network;
 
+import persistence.DAO.OrdertableDAO;
+import persistence.DTO.MenuDTO;
+import persistence.MyBatisConnectionFactory;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Server {
     private ServerSocket serverSocket;
@@ -12,6 +17,17 @@ public class Server {
     public static void main(String [] args) throws Exception {
         Server server = new Server();
         server.run();
+        /*Scanner sc = new Scanner(System.in);
+        System.out.println("가게 번호를 입력하시오.");
+        int store_pk = sc.nextInt();
+        System.out.println("메뉴 번호를 입력하시오.");
+        int menu_pk = sc.nextInt();
+        MenuDTO menuDTO = new MenuDTO(store_pk, menu_pk);
+
+        OrdertableDAO ordertableDAO = new OrdertableDAO(MyBatisConnectionFactory.getSqlSessionFactory());
+        ordertableDAO.insertOrder(menuDTO);*/
+
+
     }
     public Server() throws IOException {
         clients = new ServerThread[10];
@@ -57,4 +73,6 @@ public class Server {
             toTerminate.stop();
         }
     }
+
+
 }

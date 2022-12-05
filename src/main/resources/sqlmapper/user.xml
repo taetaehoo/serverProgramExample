@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.UserMapper">
+    <resultMap id="userResult" type="UserDTO">
+        <result property="pk" column="pk"/>
+        <result property="role" column="role"/>
+        <result property="name" column="name"/>
+        <result property="id" column="id"/>
+        <result property="pw" column="pw"/>
+        <result property="nickname" column="nickname"/>
+        <result property="pNumber" column="pNumber"/>
+        <result property="address" column="address"/>
+    </resultMap>
+
+    <select id="selectAll" resultType="UserDTO">
+        SELECT * FROM user
+    </select>
+
+    <insert id="insertCustomer" parameterType="UserDTO">
+        INSERT INTO user(name, id, pw, nickname, pNumber, address, age)
+        VALUES (#{name}, #{id}, #{pw}, #{nickname}, #{pNumber}, #{address}, #{age})
+    </insert>
+
+    <insert id="insertOwner" parameterType="UserDTO">
+        INSERT INTO user(name, id, pw, pNumber, age)
+        VALUES (#{name}, #{id}, #{pw}, #{pNumber}, #{age})
+    </insert>
+
+    <insert id="insertManager" parameterType="UserDTO">
+        INSERT INTO user(name, id, pw, pNumber, age)
+        VALUES (#{name}, #{id}, #{pw}, #{pNumber}, #{age})
+    </insert>
+
+    <select id="selectId" parameterType="String">
+        SELECT id FROM user where id = #{id}
+    </select>
+
+    <select id="selectPw" parameterType="String">
+        SELECT pw FROM user where id = #{id}
+    </select>
+
+    <select id="login" parameterType="UserDTO" resultType="UserDTO">
+        SELECT pk, role FROM user WHERE id = #{id} AND pw = #{pw}
+    </select>
+
+    <insert id="insertUser" parameterType="UserDTO">
+        INSERT INTO user(name, id, pw, nickname, pNumber, address, age)
+        VALUES (#{name}, #{id}, #{pw}, #{nickname}, #{pNumber}, #{address}, #{age})
+    </insert>
+    
+    <select id="selectRole" parameterType="int" resultType="String">
+        SELECT role FROM user WHERE pk = #{pk}
+    </select>
+
+</mapper>
